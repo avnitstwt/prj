@@ -1,84 +1,91 @@
-/*
-first class function
-high order function
-high order function 
-closure
-lexical scoping
-statement function
-fat arrow function
-declaration function
-parameter 
-argument
-pure functions
-impure functions
-rest function
-spread function
-hoisting function
+
+  const users = [
+    {
+      name: "amisha rathore",
+      pic: "https://i.pinimg.com/736x/cd/9b/1c/cd9b1cf5b96e8300751f952488d6c002.jpg",
+      bio: "silent chaos in a loud world 🌑 | not for everyone",
+    },
+    {
+      name: "kiara mehta",
+      pic: "https://i.pinimg.com/736x/1f/2f/85/1f2f856bf3a020ed8ee9ecb3306ae074.jpg",
+      bio: "main character energy 🎬 | coffee > everything ☕✨",
+    },
+    {
+      name: "ananya sharma",
+      pic: "https://plus.unsplash.com/premium_photo-1765546401370-b916e2bbc48e?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      bio: "soft heart, strong mind 🌸 | healing era",
+    },
+    {
+      name: "riya kapoor",
+      pic: "https://plus.unsplash.com/premium_photo-1765546402651-0df9200d82a0?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      bio: "late replies, deep thoughts 🌙",
+    },
+    {
+      name: "isha verma",
+      pic: "https://plus.unsplash.com/premium_photo-1754428000876-f37a9ca446a6?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      bio: "built from dreams & discipline 🖤",
+    },
+    {
+      name: "neha malhotra",
+      pic: "https://plus.unsplash.com/premium_photo-1709675640386-18b0861f8f3f?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      bio: "minimal words, maximum impact ✨",
+    },
+    {
+      name: "pallavi joshi",
+      pic: "https://plus.unsplash.com/premium_photo-1765654275637-51d5f431b3b0?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDR8fHxlbnwwfHx8fHw%3D",
+      bio: "peace over popularity 🤍",
+    },
+    {
+      name: "sneha singh",
+      pic: "https://plus.unsplash.com/premium_photo-1754772566645-714bb0b219fe?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDR8fHxlbnwwfHx8fHw%3D",
+      bio: "unbothered & evolving 🐚",
+    },
+    {
+      name: "kavya nair",
+      pic: "https://plus.unsplash.com/premium_photo-1764110385406-986854a9fec7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8",
+      bio: "romanticizing my own life 🌷",
+    },
+    {
+      name: "meera kulkarni",
+      pic: "https://plus.unsplash.com/premium_photo-1678937610777-b75a1023f6d0?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE4fHx8ZW58MHx8fHx8",
+      bio: "calm mind, wild soul 🌊",
+    },
+    {
+      name: "tanya gupta",
+      pic: "https://plus.unsplash.com/premium_photo-1728280884787-58ae8f3d84c2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDM3fHx8ZW58MHx8fHx8g",
+      bio: "learning. unlearning. growing. 🌱",
+    },
+  ];
+
+
+let main = document.querySelector('.main')
+
+
+  function showUsers(arr) {
+    arr.forEach(function (user) {
+      let divv = document.createElement('div')
+      divv.innerHTML=`<div class="cards">
+
+            <div class="texts">
+                <div class="name">
+                    ${user.name}
+                    </div>
+                    <div class="desc">
+                    
+                    ${user.bio}
+                </div>
+            </div>
+        </div>`
+        divv.style.backgroundImage=`url(${user.pic})`
+      main.appendChild(divv)
+        divv.classList.add('cards')
+
+      
 
 
 
 
-hositing kya hota hai- hoisting mtlb jisme hamein ye capability milti hai ki ham function declare karne ke phle hi use run kar sakte hain wo hoisting function kahlata hai aur jisme ham function ko expression karte hain mtlb 
 
-function expression hoisting support nhi karta aur function declaration hoisting ko support karta hai
-
-closure function: closure function ek aisa function hota hai jo ki function ke andar ek aur function ko return kre aur wo andar waala function bahar waale function se values ko inherit kare that is called closure function
-
-kisi bhi function ko ifee banana hai to sirf phle us poore function ko wrap karna hai aur uske baad aakhri mien function ko open aur close krna hai 
-
-thoda high order function it's not a that much easy function here we need to create a function and inside the function we need to return function without a name and then we can use this entire function to reuse and it will help a lot
-let solve some questions by chatgpt
-
-array ke methods- push is the method which pushing the value in the last index of array
-pop is the method which removing the value from the last index of the array
-shift is also the method which removing the value from the starting of the array
-unshift is a method which is kind of similar method of the push method like push pushing the value in the last of the index of the array but the unshift pushing the value in the first of the array
-
-splice is also a method which is kind of working for removing the values from the index which we select for example if we write like arr.splice(2,1) that mean the index will be 2 and the only one will need to remove from the side.
-
-slice is the method which return values on a new array there we can get about what values we want
-
-now lets talk about the sorting of the array where we are sorting the array by using a function it's like where we are keeping something syntax which is mentioned below
-arr = [1,2,3,4,5]
-let arrSor = arr.sort(funtion(a,b){
-return a-b
-})
-let multiply = (a,b)=> {
-    return a*b
-    }
-    function getScore(...score){
-        let total =0
-        score.forEarch(function(val){
-            total = total+val})}
-            
-            function functionOne(functionTwo){
-                functionTwo()
-                
-}
-
-functionOne(function(){
-    console.log("Function executing another function")
-}
-)
-
-function outer(){
-    let count = 0;
-    retun function(){
-        count++
-        console.log(count)
-        }}
-        const counter = outer();
-        counter()
-        counter()
-        
-        
-        */
-
-// function discountCalculator(discount){
-//     return function(price){
-//         return price - price*(discount/100)
-//     }
-// }
-
-// let ten = discountCalculator(10)
-// console.log(ten(1200))
+    })
+  }
+  showUsers(users)

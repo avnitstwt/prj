@@ -13,8 +13,17 @@ rest function
 spread function
 hoisting function
 
-foreach
 
+Array---
+foreach
+slice 
+splice
+map
+filter
+some
+every
+destructing 
+spread operator
 
 
 */
