@@ -1,7 +1,7 @@
 
 const users = [
   {
-    name: "amisha rathore",
+    name: "Amisha rathore",
     pic: "./assets/aa.jpg",
     bio: "silent chaos in a loud world 🌑 | not for everyone",
   },
@@ -17,7 +17,7 @@ const users = [
   },
   {
     name: "riya kapoor",
-    pic: "./assets/ad.avif",
+    pic: "./assets/ad.jpg",
     bio: "late replies, deep thoughts 🌙",
   },
   {
@@ -57,10 +57,16 @@ const users = [
   },
 ];
 
-let main = document.querySelector('.carding  ')
-
+let carding = document.querySelector('.carding')
+let toggle = document.querySelector('.togg')
+let mainBody = document.querySelector('.main-body')
+toggle.addEventListener('click',function(){
+  mainBody.classList.toggle('darker')
+})
 
 function showUsers(arr) {
+
+  carding.innerHTML = ''
   arr.forEach(function (user) {
     let divv = document.createElement('div')
     divv.innerHTML = `
@@ -75,15 +81,25 @@ function showUsers(arr) {
             </div>
         `
     divv.style.backgroundImage = `url(${user.pic})`
-    main.appendChild(divv)
+    carding.appendChild(divv)
     divv.classList.add('cards')
-
-
-
-
-
-
 
   })
 }
 showUsers(users)
+
+let inputt = document.querySelector('.in')
+
+inputt.addEventListener('input', function () {
+  console.dir(inputt.value);
+  let mainValue = inputt.value.toLowerCase()
+  let newUsers = users.filter((user) => {
+    let mainNalue = user.name.toLowerCase()
+    return mainNalue.startsWith(mainValue)
+
+  })
+  showUsers(newUsers)
+
+})
+
+
