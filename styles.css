@@ -41,17 +41,25 @@ font-family: sans-serif;
     color: white;
 }
 
+.darker .cardingBlack::-webkit-scrollbar {
+    height: 12px;  /* ← THIS WAS MISSING! */
+}
+
+.darker .cardingBlack::-webkit-scrollbar-track{
+    background-color: black;
+}
+.darker .cardingBlack::-webkit-scrollbar-thumb{
+    background-color: white;
+}
 .togg{
-    background-color: aqua;
     padding: 5px;
     border-radius: 7px;
     transition: background-color 0.3s ease;
     transition: padding 0.3s ease;
-
+ border: 1px solid white;
 }
 
 .togg:hover{
-    background-color: rgba(0, 255, 255, 0.462);
     padding: 10px;
 }
 .name{

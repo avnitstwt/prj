@@ -57,11 +57,15 @@ const users = [
   },
 ];
 
+let inputt = document.querySelector('.in')
 let carding = document.querySelector('.carding')
 let toggle = document.querySelector('.togg')
 let mainBody = document.querySelector('.main-body')
+
 toggle.addEventListener('click',function(){
   mainBody.classList.toggle('darker')
+  toggle.classList.toggle('darker')
+  inputt.classList.toggle('darker')
 })
 
 function showUsers(arr) {
@@ -88,7 +92,6 @@ function showUsers(arr) {
 }
 showUsers(users)
 
-let inputt = document.querySelector('.in')
 
 inputt.addEventListener('input', function () {
   console.dir(inputt.value);
