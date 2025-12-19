@@ -62,11 +62,31 @@ let carding = document.querySelector('.carding')
 let toggle = document.querySelector('.togg')
 let mainBody = document.querySelector('.main-body')
 
-toggle.addEventListener('click',function(){
-  mainBody.classList.toggle('darker')
-  toggle.classList.toggle('darker')
-  inputt.classList.toggle('darker')
-})
+function toggleDark(){
+  
+mainBody.classList.toggle('darker')
+toggle.classList.toggle('darker') 
+inputt.classList.toggle('darker')
+
+if(mainBody.classList.contains('darker')){
+localStorage.setItem('theme','dark')  
+}
+else{
+localStorage.setItem('theme','light')  
+}
+}
+let saved = localStorage.getItem('theme')
+if(saved === 'dark'){
+  toggleDark()
+}
+function DarkOrLight(){
+  toggle.addEventListener('click', function () {
+toggleDark()
+  })
+  
+}
+DarkOrLight()
+
 
 function showUsers(arr) {
 
@@ -94,15 +114,13 @@ showUsers(users)
 
 
 inputt.addEventListener('input', function () {
-  console.dir(inputt.value);
   let mainValue = inputt.value.toLowerCase()
   let newUsers = users.filter((user) => {
-    let mainNalue = user.name.toLowerCase()
-    return mainNalue.startsWith(mainValue)
+    let userName  = user.name.toLowerCase()
+    return userName.startsWith(mainValue)
 
   })
   showUsers(newUsers)
 
 })
-
 
