@@ -57,35 +57,65 @@ const users = [
   },
 ];
 
+
+
+
 let inputt = document.querySelector('.in')
 let carding = document.querySelector('.carding')
 let toggle = document.querySelector('.togg')
 let mainBody = document.querySelector('.main-body')
 
-function toggleDark(){
-  
-mainBody.classList.toggle('darker')
-toggle.classList.toggle('darker') 
-inputt.classList.toggle('darker')
+let themes = localStorage.getItem('theme')
+console.log(themes);
+if(themes==='dark'){
+  darkMode()
+}
+toggle.addEventListener('click', function () {
+  appearance()
+})
 
-if(mainBody.classList.contains('darker')){
-localStorage.setItem('theme','dark')  
+
+function darkMode(){
+  mainBody.classList.add('darker')
+  mainBody.classList.remove('lighter')
+  toggle.classList.remove('toggBorder')
+  toggle.classList.add('toggDark')
+  toggle.classList.remove('toggWhite')
+
 }
-else{
-localStorage.setItem('theme','light')  
-}
-}
-let saved = localStorage.getItem('theme')
-if(saved === 'dark'){
-  toggleDark()
-}
-function DarkOrLight(){
-  toggle.addEventListener('click', function () {
-toggleDark()
-  })
+
+function lightMode(){
+  mainBody.classList.add('lighter')
+  toggle.classList.add('toggWhite')
+  toggle.classList.remove('toggDark')
+  toggle.classList.add('toggBorder')
+  mainBody.classList.remove('darker')
   
+
 }
-DarkOrLight()
+function theme(){
+  if(mainBody.classList.contains('darker'))
+  {
+    localStorage.setItem('theme','dark')
+  }
+  else{
+    localStorage.setItem('theme','light')
+  }
+}
+function appearance() {
+  if (mainBody.classList.contains('lighter')) {
+    darkMode()
+    console.log("1");
+    
+  }
+  else {
+    lightMode()
+    console.log("2");
+  }
+  theme()
+}
+
+
 
 
 function showUsers(arr) {
@@ -116,11 +146,10 @@ showUsers(users)
 inputt.addEventListener('input', function () {
   let mainValue = inputt.value.toLowerCase()
   let newUsers = users.filter((user) => {
-    let userName  = user.name.toLowerCase()
+    let userName = user.name.toLowerCase()
     return userName.startsWith(mainValue)
 
   })
   showUsers(newUsers)
 
 })
-
